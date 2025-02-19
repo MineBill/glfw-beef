@@ -90,8 +90,14 @@ namespace GLFW {
 		public static void SetWindowShouldClose(GlfwWindow* window, bool value) => glfwSetWindowShouldClose(window, value ? TRUE : FALSE);
 
 		[CLink]
+		private static extern char8* glfwGetWindowTitle(GlfwWindow* window);
+		/// @brief Returns the title of the specified window.
+		public static StringView GetWindowTitle(GlfwWindow* window) => StringView(glfwGetWindowTitle(window));
+
+		[CLink]
 		private static extern void glfwSetWindowTitle(GlfwWindow* window, c_char* title);
 		/// Sets the title of the specified window.
+		/// The returned string is allocated and freed by GLFW. You should not free it yourself.
 		public static void SetWindowTitle(GlfwWindow* window, StringView title) => glfwSetWindowTitle(window, title.ToScopeCStr!());
 
 		[CLink]

@@ -25,6 +25,10 @@ namespace GLFW {
 		private static extern void glfwInitHint(c_int hint, c_int value);
 		/// Sets the specified init hint to the desired value.
 		public static void InitHint(InitHint hint, int value) => glfwInitHint(hint.Underlying, (.) value);
+		public static void InitHint<T>(InitHint hint, T value) where T : enum => glfwInitHint((.) hint, (.) value);
+
+		[LinkName("glfwInitAllocator")]
+		public static extern void InitAllocator(GlfwAllocator* allocator);
 
 		[CLink]
 		private static extern void glfwGetVersion(c_intptr* major, c_intptr* minor, c_intptr* rev);
@@ -64,5 +68,26 @@ namespace GLFW {
 
 			return prevCallback;
 		}
+
+		[CLink]
+		private static extern c_int glfwGetPlatform();
+		/// @brief Returns the currently selected platform.
+		/// This function returns the platform that was selected during initialization.
+		/// The returned value will be one of .Win32, .Cocoa, .Wayland, .X11 or .Null.
+		///
+		/// @return The currently selected platform, or zero if an error occurred.
+		/// @thread_safety This function may be called from any thread
+		public static Platform GetPlatform() => (Platform)glfwGetPlatform();
+
+		[CLink]
+		private static extern c_int glfwPlatformSupported(c_int platform);
+		/// @brief Returns whether the library includes support for the specified platform.
+		///
+		/// This function returns whether the library was compiled with support for the specified
+		/// platform. The platform must be one of .Win32, .Cocoa, .Wayland, .X11, .Null.
+		///
+		/// @return true if the platform is supported, or false otherwise.
+		/// @thread_safety This function may be called from any thread.
+		public static bool PlatformSupported(Platform platform) => glfwPlatformSupported(platform.Underlying) == 1;
 	}
 }

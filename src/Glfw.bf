@@ -11,6 +11,30 @@ namespace GLFW {
 
 		// Enums
 
+		public enum Platform {
+			Any     = 0x00060000,
+			Win32   = 0x00060001,
+			Cocoa   = 0x00060002,
+			Wayland = 0x00060003,
+			X11     = 0x00060004,
+			Null    = 0x00060005
+		}
+
+		public enum AnglePlatformType {
+			None     = 0x00037001,
+			OpenGL   = 0x00037002,
+			OpenGLES = 0x00037003,
+			D3D9     = 0x00037004,
+			D3D11    = 0x00037005,
+			Vulkan   = 0x00037007,
+			Metal    = 0x00037008
+		}
+
+		public enum Wayland {
+			PreferLibdecor = 0x00038001,
+			DisableLibdecor = 0x00038002,
+		}
+
 		public enum ClientApi {
 			OpenGlApi = 0x00030001,
 			OpenGlEsApi = 0x00030002,
@@ -64,17 +88,29 @@ namespace GLFW {
 			/// The requested format is not supported or available.
 			FormatUnavailable = 0x00010009,
 			/// The specified window does not have an OpenGL or OpenGL ES context.
-			NoWindowContext = 0x0001000A
+			NoWindowContext = 0x0001000A,
+			/// The requested feature is not provided by the platform.
+			FeatureUnavailable = 0x0001000C,
+			/// The requested feature is not implemented for the platform.
+			FeatureUnimplemented = 0x0001000D,
+			/// Platform unavailable or no matching platform was found.
+			PlatformUnavailable = 0x0001000E
 		}
 
 		/// Initialization hints are set before Init and affect how the library behaves until termination.
 		public enum InitHint {
 			/// Specifies whether to also expose joystick hats as buttons, for compatibility with earlier versions of GLFW that did not have glfwGetJoystickHats. Possible values are true and false.
 			JoystickHatButtons = 0x00050001,
+			// ANGLE rendering backend init hint.
+			AnglePlatformType = 0x00050002,
 			/// Specifies whether to set the current directory to the application to the Contents/Resources subdirectory of the application's bundle, if present.
 			CocoaChdirResources = 0x00051001,
 			/// Specifies whether to create a basic menu bar, either from a nib or manually, when the first window is created, which is when AppKit is initialized.
-			CocoaMenuBar = 0x00051002
+			CocoaMenuBar = 0x00051002,
+			/// Specifies the platform to use for windowing and input.
+			/// The default value is Platform.Any, which will choose any platform the library includes support for except for the Null backend.
+			Platform = 0x00050003,
+			WaylandLibdecor = 0x00053001
 		}
 	}
 }

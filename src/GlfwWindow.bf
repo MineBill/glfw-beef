@@ -16,6 +16,9 @@ namespace GLFW {
 			CenterCursor = 0x00020009,
 			TransparentFramebuffer = 0x0002000A,
 			FocusOnShow = 0x0002000C,
+			Passthrough = 0x0002000D,
+			PositionX = 0x0002000E,
+			PositionY = 0x0002000F,
 			ScaleToMonitor = 0x0002200C,
 
 			// Framebuffer related
@@ -59,7 +62,9 @@ namespace GLFW {
 
 			// X11 specific
 			X11ClassName = 0x00024001,
-			X11InstanceName = 0x00024002
+			X11InstanceName = 0x00024002,
+			/// Allows specification of the Wayland app_id.
+			WaylandAppId = 0x00026001,
 		}
 
 		public enum Attribute {

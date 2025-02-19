@@ -249,7 +249,8 @@ namespace GLFW {
 		public enum CursorInputMode {
 			Normal = 0x00034001,
 			Hidded = 0x00034002,
-			Disabled = 0x00034003
+			Disabled = 0x00034003,
+			Captured = 0x00034004,
 		}
 
 		public enum Action : c_uchar {
