@@ -2,6 +2,7 @@ FileVersion = 1
 
 [Project]
 Name = "GLFW"
+Version = "1.0"
 TargetType = "BeefLib"
 StartupObject = "GLFW.Program"
 
