@@ -6,7 +6,7 @@ class Program
 {
 	public static void Main()
 	{
-		SetupHelper.CheckDeps!();
-		SetupHelper.ConfigureAndBuild(".");
+		CMake.CheckDeps!();
+		CMake.ConfigureAndBuild(".");
 	}
 }
