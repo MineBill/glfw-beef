@@ -11,25 +11,25 @@ OtherLinkFlags = "$(LinkFlags) gdi32.lib user32.lib kernel32.lib shell32.lib"
 LibPaths = ["$(ProjectDir)/dist/$(Configuration)-$(Platform)/glfw3d.lib"]
 
 [Configs.Debug.Linux64]
-LibPaths = ["$(ProjectDir)/dist/$(Configuration)-$(Platform)/glfw3d.a"]
+LibPaths = ["$(ProjectDir)/dist/$(Configuration)-$(Platform)/libglfw3d.a"]
 
 [Configs.Release.Win64]
 OtherLinkFlags = "$(LinkFlags) gdi32.lib user32.lib kernel32.lib shell32.lib"
 LibPaths = ["$(ProjectDir)/dist/$(Configuration)-$(Platform)/glfw3.lib"]
 
 [Configs.Release.Linux64]
-LibPaths = ["$(ProjectDir)/dist/$(Configuration)-$(Platform)/glfw3d.a"]
+LibPaths = ["$(ProjectDir)/dist/$(Configuration)-$(Platform)/libglfw3d.a"]
 
 [Configs.Paranoid.Win64]
 OtherLinkFlags = "$(LinkFlags) gdi32.lib user32.lib kernel32.lib shell32.lib"
 LibPaths = ["$(ProjectDir)/dist/$(Configuration)-$(Platform)/glfw3.lib"]
 
 [Configs.Paranoid.Linux64]
-LibPaths = ["$(ProjectDir)/dist/$(Configuration)-$(Platform)/glfw3d.a"]
+LibPaths = ["$(ProjectDir)/dist/$(Configuration)-$(Platform)/libglfw3.a"]
 
 [Configs.Test.Win64]
 OtherLinkFlags = "$(LinkFlags) gdi32.lib user32.lib kernel32.lib shell32.lib"
 LibPaths = ["$(ProjectDir)/dist/$(Configuration)-$(Platform)/glfw3d.lib"]
 
 [Configs.Test.Linux64]
-LibPaths = ["$(ProjectDir)/dist/$(Configuration)-$(Platform)/glfw3d.a"]
+LibPaths = ["$(ProjectDir)/dist/$(Configuration)-$(Platform)/libglfw3d.a"]
